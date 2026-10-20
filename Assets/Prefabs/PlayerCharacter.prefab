@@ -226,6 +226,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2345745576173315295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3255739087791160487}
+  m_Layer: 0
+  m_Name: PuntoDisparo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3255739087791160487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345745576173315295}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.188, y: 0.03242004, z: 0.743}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303161819269340602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4290937900347272740
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,8 +609,9 @@ GameObject:
   - component: {fileID: 4194639177708734896}
   - component: {fileID: 5534979262636512937}
   - component: {fileID: -3531394173313125641}
-  - component: {fileID: 3003224494197049800}
-  - component: {fileID: 5653002894040644754}
+  - component: {fileID: 8052417591560290295}
+  - component: {fileID: 1119536442929454417}
+  - component: {fileID: 4497831687737724439}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -606,6 +638,7 @@ Transform:
   - {fileID: 3755710792047211935}
   - {fileID: 5022709695551931205}
   - {fileID: 3441576246247148476}
+  - {fileID: 3255739087791160487}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8328081082798879591
@@ -708,8 +741,9 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 5534979262636512937}
   - {fileID: -3531394173313125641}
-  - {fileID: 3003224494197049800}
-  - {fileID: 5653002894040644754}
+  - {fileID: 8052417591560290295}
+  - {fileID: 1119536442929454417}
+  - {fileID: 4497831687737724439}
   ForceRemoteRenderTimeframe: 0
 --- !u!143 &4194639177708734896
 CharacterController:
@@ -793,7 +827,7 @@ MonoBehaviour:
   PlayerSpeed: 5
   JumpForce: 10
   GravityValue: -9.81
---- !u!114 &3003224494197049800
+--- !u!114 &8052417591560290295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,12 +836,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6593363954499105799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fdcff13f81a72c4dbc51967fe8ae290, type: 3}
+  m_Script: {fileID: 11500000, guid: fcdb973e05a5fe94891afbce39283ecf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerColor
-  meshRenderer: {fileID: 6115685248489134904}
-  _NetworkColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &5653002894040644754
+  m_EditorClassIdentifier: Assembly-CSharp::SaludoRCP
+--- !u!114 &1119536442929454417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -816,11 +848,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6593363954499105799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 547b006566702a94a90efb20538314e8, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f2790f1cc213646a2c26a10337f5a1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  meshRenderer: {fileID: 6115685248489134904}
-  _Health: 50
+  m_EditorClassIdentifier: Assembly-CSharp::ControlJugador
+  prefabBala: {fileID: 1520858949785751630, guid: cc7908f64aae33a40a7bb5f57e38d76d, type: 3}
+  puntoDisparo: {fileID: 3255739087791160487}
+--- !u!114 &4497831687737724439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593363954499105799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3072d3abe730394ead9680a3c6df007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VidaPersonaje
+  _Vida: 100
+  renderPersonaje: {fileID: 6115685248489134904}
 --- !u!1 &9205329054931125115
 GameObject:
   m_ObjectHideFlags: 0

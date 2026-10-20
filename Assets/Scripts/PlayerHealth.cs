@@ -7,15 +7,13 @@ public class PlayerHealth : NetworkBehaviour
 {
     public MeshRenderer meshRenderer;
 
-    [Networked, OnChangedRender(nameof(HealthChanged))]
-    public int Health { get; set; } = 50;
+    [Networked, OnChangedRender(nameof(HealthChanged))] public int Health { get; set; } = 50;
 
     private void Update()
     {
         if (HasStateAuthority == false) return;
 
-        if (Keyboard.current != null &&
-            Keyboard.current.iKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.iKey.wasPressedThisFrame)
         {
             int damage = Random.Range(2, 6);
 
@@ -27,14 +25,10 @@ public class PlayerHealth : NetworkBehaviour
     {
         float healthPercentage = Health / 50f;
 
-        Color healthColor = Color.Lerp(
-            Color.red,
-            Color.green,
-            healthPercentage
-        );
+        Color healthColor = Color.Lerp(Color.red, Color.green, healthPercentage);
 
         meshRenderer.material.color = healthColor;
 
-        Debug.Log("Vida restante: " + Health);
+        Debug.Log("Ahora tienes: " + Health + " de vida");
     }
 }
